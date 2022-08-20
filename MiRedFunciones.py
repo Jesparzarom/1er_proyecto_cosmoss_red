@@ -1,4 +1,6 @@
 # FUNCIONES A IMPORTAR EN EL MÓDULO PRINCIPAL "main.py"
+from genericpath import exists
+import os
 from datetime import datetime as fecha
 from tabulate import tabulate as tab
 from tqdm import tqdm
@@ -38,21 +40,28 @@ def ingreso_nombre():
     iniciar = input(' Ingresa una opción ► ')
     print('--------------------------------')
     print()
+    
     rein = True
     # Bucle inicial: Usuario.
     while rein == True:
         if iniciar == 'a':
-            nombre = input("ingresa un nombre de usuario para comenzar ► ")
+            nombre = input("ingresa un nombre de usuario para comenzar ► ") # Se genera nuevo usuario
             print()
             rein = False
             return nombre
             
         elif iniciar == 'b':
             nombre = input("ingresa tú usuario ► ")
-            print()
-            rein = False
-            return nombre
-
+            if os.path.isfile("usuarios\\" + nombre + ".user"): # Comprobando si el nombre de usuario existe
+                print()
+                rein = False
+                return nombre
+            
+            else:
+                print(' ¡Tu usuario no existe!')
+                nombre = input("ingresa un nombre de usuario para comenzar ► ") # Si no existe, se genera nuevo usuario.
+                return nombre
+                
         else:
             # En caso de ingresar otra cosa distinta a "a" y "b" el bucle se reinicia.
             rein = True
@@ -185,7 +194,23 @@ def posteo(nombre, nombre_amigo, mensaje):
         print("Publicado el", fecha.today().strftime('%d-%m-%Y  a las %H:%M  hrs.'))
         print()
 
+# Función para leer los datos de usuario registrados anteriormente.
+def leerUsuario(nombre):
+    archivo_usuario = open("usuarios\\" + nombre + ".user","r")
+    nombre = archivo_usuario.readline().rstrip()
+    edad = int(archivo_usuario.readline())
+    sexo = archivo_usuario.readline().rstrip()
+    estatura = float(archivo_usuario.readline())
+    pais = archivo_usuario.readline().rstrip()
+    ciudad = archivo_usuario.readline().rstrip()
+    amigos = int(archivo_usuario.readline())
+    descripcion = archivo_usuario.readline().rstrip()
+    #Una vez que hemos leido, cerrar el archivo
+    archivo_usuario.close()
+    return(nombre, edad, sexo, estatura, pais, ciudad, amigos, descripcion)
 
+# Función para crear un archivo de usuario y registrar los datos ingresados automáticamente.
+# Si encuentra archivo, lo abre en modo lectura con las variables indicadas.
 def generarUsuario(nombre, edad, sexo, estatura, pais, ciudad, amigos, descripcion):
     archivo_usuario = open("usuarios\\" + nombre.rstrip() + ".user", "w")
     archivo_usuario.write(nombre.rstrip() + "\n")
@@ -196,7 +221,7 @@ def generarUsuario(nombre, edad, sexo, estatura, pais, ciudad, amigos, descripci
     archivo_usuario.write(ciudad.rstrip() + "\n")
     archivo_usuario.write(str(amigos).rstrip() + "\n")
     archivo_usuario.write(descripcion.rstrip() + "\n")
-    # Una vez que hemos escrito todos los datos del usuario en el archivo, no debemos olvidar cerrarlo
+    # Una vez que hemos escrito, cerrar archivo
     archivo_usuario.close()
 
      

@@ -19,18 +19,7 @@ while bucle:
         # Barra de progreso
         funcion.barra(nombre)
         print()
-        # Si encuentra archivo, lo abre en modo lectura con las variables indicadas.
-        archivo_usuario = open("usuarios\\" + nombre + ".user", "r")
-        nombre = archivo_usuario.readline()
-        edad = int(archivo_usuario.readline())
-        sexo = archivo_usuario.readline()
-        estatura = float(archivo_usuario.readline())
-        pais = archivo_usuario.readline()
-        ciudad = archivo_usuario.readline()
-        amigos = int(archivo_usuario.readline())
-        descripcion = archivo_usuario.readline()
-        # Una vez que hemos leído los datos del usuario, no olvidarnos de cerrar el archivo
-        archivo_usuario.close()
+        (nombre, edad, sexo, estatura, pais, ciudad, amigos, descripcion) = funcion.leerUsuario(nombre)
         print(' Hola de nuevo', nombre, '¡Aquí tienes tu perfil!')
 
     else:
