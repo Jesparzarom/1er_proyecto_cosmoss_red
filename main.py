@@ -152,17 +152,10 @@ while bucle:
         elif opcion == 0:
             print("Has decidido salir. Guardando perfil en ", nombre + ".user")
             funcion.barra(nombre)
-            archivo_usuario = open(nombre.rstrip() + ".user", "w")
-            archivo_usuario.write(nombre.rstrip() + "\n")
-            archivo_usuario.write(str(edad).rstrip() + "\n")
-            archivo_usuario.write(sexo.rstrip() + "\n")
-            archivo_usuario.write(str(estatura).rstrip() + "\n")
-            archivo_usuario.write(pais.rstrip() + "\n")
-            archivo_usuario.write(ciudad.rstrip() + "\n")
-            archivo_usuario.write(str(amigos).rstrip() + "\n")
-            archivo_usuario.write(descripcion.rstrip() + "\n")
-            # Una vez que hemos escrito todos los datos del usuario en el archivo, no debemos olvidar cerrarlo
-            archivo_usuario.close()
+            funcion.generarUsuario(
+                                   nombre, edad, sexo, 
+                                   estatura, pais, ciudad, amigos, descripcion
+                                   )
             print("Archivo", nombre + ".user", "guardado")
 
     # Despedida al usuario

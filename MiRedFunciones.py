@@ -195,6 +195,27 @@ def posteo(nombre, nombre_amigo, mensaje):
         print("Publicado el", fecha.today().strftime('%d-%m-%Y  a las %H:%M  hrs.'))
         print()
 
+
+def generarUsuario(nombre, edad, sexo, estatura, pais, ciudad, amigos, descripcion):
+    archivo_usuario = open(nombre.rstrip() + ".user", "w")
+    archivo_usuario.write(nombre.rstrip() + "\n")
+    archivo_usuario.write(str(edad).rstrip() + "\n")
+    archivo_usuario.write(sexo.rstrip() + "\n")
+    archivo_usuario.write(str(estatura).rstrip() + "\n")
+    archivo_usuario.write(pais.rstrip() + "\n")
+    archivo_usuario.write(ciudad.rstrip() + "\n")
+    archivo_usuario.write(str(amigos).rstrip() + "\n")
+    archivo_usuario.write(descripcion.rstrip() + "\n")
+    # Una vez que hemos escrito todos los datos del usuario en el archivo, no debemos olvidar cerrarlo
+    archivo_usuario.close()
+
+
+
+
+
+
+
+
         
 # Espacios xD.
 def espacio():
