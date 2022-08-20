@@ -13,14 +13,14 @@ while bucle:
     funcion.bienvenida(nombre)  # Este es un mensaje de bienvenida
 
     # Busca archivo con nombre de usuario almacenado.
-    if os.path.isfile(nombre + ".user"):
+    if os.path.isfile("usuarios\\" + nombre + ".user"):
         print("Leyendo datos de usuario", nombre, "desde archivo.")
         print()
         # Barra de progreso
         funcion.barra(nombre)
         print()
         # Si encuentra archivo, lo abre en modo lectura con las variables indicadas.
-        archivo_usuario = open(nombre + ".user", "r")
+        archivo_usuario = open("usuarios\\" + nombre + ".user", "r")
         nombre = archivo_usuario.readline()
         edad = int(archivo_usuario.readline())
         sexo = archivo_usuario.readline()
@@ -166,4 +166,3 @@ while bucle:
     funcion.espacio()
 
 bucle = True
-

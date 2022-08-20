@@ -1,5 +1,4 @@
 # FUNCIONES A IMPORTAR EN EL MÓDULO PRINCIPAL "main.py"
-
 from datetime import datetime as fecha
 from tabulate import tabulate as tab
 from tqdm import tqdm
@@ -59,8 +58,6 @@ def ingreso_nombre():
             rein = True
           
         
-            
-
 # Saludo de bienvenida
 def bienvenida(nombre):
     print()
@@ -68,7 +65,6 @@ def bienvenida(nombre):
     print("******       Hola ", nombre, ", ¡te damos la bienvenida a COSMOSS!   (>‿◠)✌      ********")
     separador(1)
     print()
-
 
 # Año de nacimiento del usuario.
 # Se utiliza este dato para estimar la edad de la persona. Se almacena en la variable "edad" y se retorna
@@ -78,20 +74,17 @@ def ingreso_edad():
     separador(2)
     return edad
 
-
 # Funcion que retorna el sexo del usuario.
 def ingreso_sexo():
     sexo = input("¿cúal es tu sexo/género? ► ")
     separador(2)
     return sexo
 
-
 # Función que retorna la estatura en metros ingresada por el usuario.
 def ingreso_estatura():
     estatura = float(input("¿Cuánto mides? (dímelo en metros). ► "))
     separador(2)
     return estatura
-
 
 #  Funciones que reotrna los datos del País y la Ciudad ingresados por el usuario.
 def ingreso_pais():
@@ -104,7 +97,6 @@ def ingreso_ciudad():
     ciudad = input("¿Y tu ciudad? ► ")
     separador(2)
     return ciudad
-
 
 # Amigos del usuario en una variable tipo "int". La función retorna el número de amigos.
 def nro_amigos():
@@ -125,7 +117,6 @@ def sobre_mi():
 def barra(nombre):
         for i in tqdm(nombre, ncols= 100, desc= ("Progreso"), unit=""):
             sleep(0.1)
-
 
 # Tabla organizada de datos de perfil con el módulo "tabúlate". Los datos del usuario son los argumentos.
 def datos(nombre, edad, sexo, estatura, ciudad, pais, amigos, descripcion,):
@@ -168,14 +159,13 @@ def sub_menu():
     separador(2)
     return modif    
     
-
     # Función para posteos del usuario, ya sea post simple o etiquetando a un amigo.
 def mensajes():
     print()
     mensaje = input('¿Que quieres postear? ► ')
     return mensaje
         
-
+        
 def posteo(nombre, nombre_amigo, mensaje):
     if nombre_amigo == None:
         print()
@@ -197,7 +187,7 @@ def posteo(nombre, nombre_amigo, mensaje):
 
 
 def generarUsuario(nombre, edad, sexo, estatura, pais, ciudad, amigos, descripcion):
-    archivo_usuario = open(nombre.rstrip() + ".user", "w")
+    archivo_usuario = open("usuarios\\" + nombre.rstrip() + ".user", "w")
     archivo_usuario.write(nombre.rstrip() + "\n")
     archivo_usuario.write(str(edad).rstrip() + "\n")
     archivo_usuario.write(sexo.rstrip() + "\n")
