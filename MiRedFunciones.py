@@ -209,14 +209,7 @@ def generarUsuario(nombre, edad, sexo, estatura, pais, ciudad, amigos, descripci
     # Una vez que hemos escrito todos los datos del usuario en el archivo, no debemos olvidar cerrarlo
     archivo_usuario.close()
 
-
-
-
-
-
-
-
-        
+     
 # Espacios xD.
 def espacio():
     print()
@@ -234,6 +227,3 @@ def espacio():
     print()
     print()
     print()
-    
-    
- 
