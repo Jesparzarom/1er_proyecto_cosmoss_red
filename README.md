@@ -7,7 +7,8 @@ plataforma *Coursera*
 
 ### Descripción
 El objetivo del proyecto fue el entender y aprender la lógica del lenguaje python mediante la simulación de una "red social", ejecutada en la
-terminal. Se solicita al usuario registrarse, o iniciar sesion. Si el usuario ya está registrado (sus datos se guardan en un archivo `nombre.user`).
+terminal. Se solicita al usuario registrarse. Si el usuario ya está registrado (sus datos se guardan en un archivo `nombre.user`) entonces 
+"inicia sesión" con los datos completados en el registro (o modificados posteriormente en un menú de opciones > modificacion de datos).
 
 
 Se manejaron importaciones de módulos python y módulos propios, funciones y métodos simples, bucles for y while, manipulacion de strings y listas.
